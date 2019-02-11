@@ -1,3 +1,5 @@
+package travel_reminder;
+
 import java.io.*;
 import java.util.Random;
 
