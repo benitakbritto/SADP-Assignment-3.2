@@ -1,8 +1,10 @@
+package travel_reminder;
+
 // The program is for adjacency matrix representation of the graph
 import java.util.*;
 import java.io.*;
 
-class CNT_Map implements CNT_iMap
+public class CNT_Map implements CNT_iMap
 {
 
     // A utility function to find the vertex with minimum distance value,
