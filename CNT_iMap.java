@@ -1,6 +1,8 @@
+package travel_reminder;
+
 import java.io.*;
 
-interface CNT_iMap
+public interface CNT_iMap
 {
 
   public int dijkstra(int graph[][], int src, int dest_index);

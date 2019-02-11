@@ -1,6 +1,8 @@
+package travel_reminder;
+
 import java.io.*;
 
-interface CNT_iGPS
+public interface CNT_iGPS
 {
   public void isGpsWeak();
 }
