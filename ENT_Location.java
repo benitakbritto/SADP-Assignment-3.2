@@ -1,6 +1,8 @@
+package travel_reminder;
+
 import java.io.*;
 
-class ENT_Location{
+public class ENT_Location{
     public int graph[][] = new int[][]
     {{0, 4, 0, 0, 0, 0, 0, 8, 0},
     {4, 0, 8, 0, 0, 0, 0, 11, 0},
@@ -13,5 +15,5 @@ class ENT_Location{
     {0, 0, 2, 0, 0, 0, 6, 7, 0}
    };
 
-   public String location={"A","B","C","D","E","F","G","H","I"};
+   public String location[]={"A","B","C","D","E","F","G","H","I"};
 }

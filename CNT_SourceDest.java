@@ -1,12 +1,16 @@
+package travel_reminder;
+
+
 import java.io.*;
 import java.util.Scanner;
+public class CNT_SourceDest{
 
-class CNT_SourceDest{
-
+    INT_SourceDest ISD=new INT_SourceDest();
     private String source;
     private String destination;
     private int source_index;
     private int dest_index;
+
 
     public void setSourceIndex(int s_index){
         source_index=s_index;
@@ -23,17 +27,20 @@ class CNT_SourceDest{
         return dest_index;
     }
 
-    public bool validateLocation(ENT_Location imapObj, String source, String destination){
+    public boolean validateLocation(ENT_Location imapObj, String source, String destination)
+    {
         int source_index = -1;
         int dest_index = -1;
-        for (int i=0; i<imapObj.location.size(); i++){
-            if(imapObj.location[i] == source)
+      //  System.out.println("Size of location : "+ imapObj.location.length);
+        for (int i=0; i<imapObj.location.length; i++)
+        {
+            if(imapObj.location[i].equals(source))
             {
                 source_index = i;
                 setSourceIndex(source_index);
             }
 
-            if(imapObj.location[i] == destination)
+            if(imapObj.location[i].equals(destination) )
             {
                 dest_index = i;
                 setDestIndex(dest_index);
@@ -41,7 +48,7 @@ class CNT_SourceDest{
 
         }
 
-        if(source_index=dest_index){
+        if(source_index == dest_index){
             System.out.println("Invalid Input");
             System.out.println("--------------------");
             return false;
@@ -55,26 +62,20 @@ class CNT_SourceDest{
 
         System.out.println("Invalid Source or Destination!");
         return false;
-
-        
-
-    }
-    
-    
-    
-    public void getSourceDest(Ent_Location imapObj){
-        do{
-            System.out.println("-----------------------");
-            System.out.println("Enter Source Location");
-            Scanner s=new Scanner(System.in);
-            String source=s.nextLine();
-            System.out.println("Enter Destination");
-            String destination=s.nextLine();
-            System.out.println("Validating information...")
-        }
-        while(!validateLocation(imapObj,  source,  destination));
     }
 
-    
+
+
+    public void getSourceDest(ENT_Location imapObj){
+
+      source=ISD.getSource();
+      destination=ISD.getDest();
+       while(!validateLocation(imapObj,  source,  destination)){
+         source=ISD.getSource();
+         destination=ISD.getDest();
+       }
+    }
+
+
 
 }
