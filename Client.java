@@ -11,7 +11,7 @@ public class Client {
 
          // Looking up the registry for the remote object
          //Hello stub = (Hello) registry.lookup("Hello");
-         CNT_Account acc_stub = (CNT_Account) registry.lookup("CNT_Account");
+         CNT_IAccount acc_stub = (CNT_IAccount) registry.lookup("CNT_IAccount");
        /*  CNT_SourceDest srcDst_stub = (CNT_SourceDest) registry.lookup("CNT_SourceDest");
          CNT_Eta eta_stub = (CNT_Eta) registry.lookup("CNT_Eta");
          CNT_Map map_stub = (CNT_Map) registry.lookup("CNT_Map");

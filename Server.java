@@ -20,7 +20,7 @@ public class Server implements CNT_IAccount{
          // Instantiating the implementation class
         INT_Account i = new INT_Account();
          ENT_Client e = new ENT_Client();
-         CNT_Account acc_obj = new CNT_Account(i, e);
+         CNT_IAccount acc_obj = new CNT_Account(i, e);
        /*  CNT_iSourceDest srcDst_obj = new CNT_SourceDest();
          CNT_iEta eta_obj = new CNT_Eta();
          CNT_iMap map_obj = new CNT_Map();
@@ -29,7 +29,7 @@ public class Server implements CNT_IAccount{
 
          /* Exporting the object of implementation class
           (here we are exporting the remote object to the stub)*/
-         CNT_Account acc_stub =  (CNT_Account) UnicastRemoteObject.exportObject(acc_obj, 0);
+         CNT_IAccount acc_stub =  (CNT_IAccount) UnicastRemoteObject.exportObject(acc_obj, 0);
         /* CNT_SourceDest srcDst_stub =  (CNT_SourceDest) UnicastRemoteObject.exportObject(srcDst_obj, 0);         CNT_Account acc_stub =  (CNT_Account) UnicastRemoteObject.exportObject(acc_obj, 0);
          CNT_Eta eta_stub =  (CNT_Eta) UnicastRemoteObject.exportObject(eta_obj, 0);
          CNT_Map map_stub =  (CNT_Map) UnicastRemoteObject.exportObject(map_obj, 0);
@@ -38,7 +38,7 @@ public class Server implements CNT_IAccount{
          // Binding the remote object (stub) in the registry
          Registry registry = LocateRegistry.getRegistry();
 
-         registry.bind("CNT_Account", acc_stub);
+         registry.bind("CNT_IAccount", acc_stub);
          /*registry.bind("CNT_SourceDest", srcDst_stub);
          registry.bind("CNT_Eta", eta_stub);
          registry.bind("CNT_Map", map_stub);
