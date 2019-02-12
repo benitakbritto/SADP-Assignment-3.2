@@ -1,6 +1,6 @@
 package travel_reminder;
 
-public interface CNT_iETA
+public interface INT_ETA
 {
     public int displayTime();
     public int displayDistance();

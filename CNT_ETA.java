@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
 
 
-public class CNT_ETA implements CNT_iETA {
+public class CNT_ETA implements INT_ETA {
 
     private Scanner sc;
     private int distance;
@@ -43,7 +43,7 @@ public class CNT_ETA implements CNT_iETA {
         this.distance = mapObj.dijkstra(graph, src_i, dest_i);
         return this.distance;
     }
-    private int calculateTime(int graph[][], int src_i, int dest_i){
+    private int calculateTime(){
 
         this.time = this.distance*DIST_TIME_CONVERSION_FACTOR;
 
@@ -52,7 +52,7 @@ public class CNT_ETA implements CNT_iETA {
     }
     private void decrementTime(int graph[][], int src_i, int dest_i){
 
-        int time = calculateTime(graph, src_i, dest_i);
+        int time = calculateTime();
         try{
             while (time > 5){
                 time -=1;
@@ -83,5 +83,10 @@ public class CNT_ETA implements CNT_iETA {
         }
         System.out.println("------------------------------------------------");
         System.exit(0);
+    }
+
+    public void test_ETA(int graph[][], int src_i, int dest_i){
+        calculateDistance(graph, src_i, dest_i);
+        calculateTime();
     }
 }
