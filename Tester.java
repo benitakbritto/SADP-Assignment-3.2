@@ -24,5 +24,8 @@ public class Tester
                                 };
       int distance = map_obj.dijkstra(graph, source_index, dest_index);
       System.out.println(distance);
+
+      CNT_ETA eta_obj = new CNT_ETA();
+      eta_obj.test_ETA(graph, source_index, dest_index);
   }
 }
