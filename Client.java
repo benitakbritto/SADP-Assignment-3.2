@@ -4,40 +4,36 @@ import travel_reminder.*;
 
 public class Client {
    private Client() {}
-   public static void main(String[] args) {
-      try {
+   public static void main(String[] args)
+   {
+      try
+      {
          // Getting the registry
          Registry registry = LocateRegistry.getRegistry(null);
 
          // Looking up the registry for the remote object
-         //Hello stub = (Hello) registry.lookup("Hello");
          CNT_IAccount acc_stub = (CNT_IAccount) registry.lookup("CNT_IAccount");
-       /*  CNT_SourceDest srcDst_stub = (CNT_SourceDest) registry.lookup("CNT_SourceDest");
-         CNT_Eta eta_stub = (CNT_Eta) registry.lookup("CNT_Eta");
-         CNT_Map map_stub = (CNT_Map) registry.lookup("CNT_Map");
-         CNT_GPS gps_stub = (CNT_GPS) registry.lookup("CNT_GPS");*/
+         CNT_ISourceDest srcDst_stub = (CNT_ISourceDest) registry.lookup("CNT_ISourceDest");
+         CNT_IETA eta_stub = (CNT_IETA) registry.lookup("CNT_IETA");
+         CNT_iGPS gps_stub = (CNT_iGPS) registry.lookup("CNT_iGPS");
 
          // Calling the remote method using the obtained object
-        //CALL THE METHODS !!!!!!
-         //stub.printMsg();
-         //
          INT_Account i = new INT_Account();
          ENT_Client e = new ENT_Client();
-         //CNT_IAccount c = new CNT_Account(i, e);
-
          i.getUsernamePassword();
-         e.initializeClients();
 
-      if(acc_stub.validateLoginInfo(i.getUsername(), i.getPassword()))
-      {
-        System.out.println("Inside if");
-      }
-      else
-      {
-        System.exit(0);
-      }
-
-         // System.out.println("Remote method invoked");
+        if(acc_stub.validateLoginInfo(i.getUsername(), i.getPassword())){
+            ENT_Location Loc_Obj = new ENT_Location();
+            srcDst_stub.getSourceDest(Loc_Obj);
+            gps_stub.isGpsWeak();
+            int source_index = srcDst_stub.getSourceIndex();
+            int dest_index = srcDst_stub.getDestIndex();
+            eta_stub.test_ETA(Loc_Obj.graph, source_index, dest_index);
+            gps_stub.isGpsWeak();
+        }
+        else{
+          System.exit(0);
+        }
       } catch (Exception e) {
          System.err.println("Client exception: " + e.toString());
          e.printStackTrace();

@@ -6,7 +6,7 @@ public class ENT_Client{
 	private HashMap<String, String> clients = new HashMap<>();
 	private HashMap<String, String> client_roles = new HashMap<>();
 
-	public void initializeClients(){
+	public ENT_Client(){
 		clients.put("Benita", "benita");
 		client_roles.put("Benita", "user");
 		clients.put("Karuna", "karuna");
@@ -18,10 +18,13 @@ public class ENT_Client{
 		clients.put("Mayur", "mayur");
 		client_roles.put("Mayur", "mayur");
 	}
+
 	public HashMap<String, String> getClients(){
 		return this.clients;
 	}
+
 	public HashMap<String, String> getClientRoles(){
 		return this.client_roles;
 	}
+	
 }

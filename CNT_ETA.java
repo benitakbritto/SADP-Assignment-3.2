@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
 
-public class CNT_ETA implements INT_ETA {
+public class CNT_ETA implements CNT_IETA{
 
     private Scanner sc;
     private int distance;
@@ -18,7 +18,7 @@ public class CNT_ETA implements INT_ETA {
 
         sc = new Scanner(System.in);
 
-        while (stop != 'X' && stop != 'x') {
+        while (stop != 'X' && stop != 'x'){
             System.out.println("Enter X to stop alarm");
             stop = sc.next().charAt(0);
         }

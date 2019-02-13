@@ -11,6 +11,7 @@ public class INT_SourceDest{
         String source=s.nextLine();
         return source;
     }
+
     public String getDest(){
         System.out.println("Enter Destination");
         Scanner s=new Scanner(System.in);
@@ -19,5 +20,4 @@ public class INT_SourceDest{
         System.out.println("Validating information...");
         return destination;
     }
-
 }

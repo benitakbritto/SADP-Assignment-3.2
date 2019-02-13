@@ -1,16 +1,14 @@
 package travel_reminder;
-
-
 import java.io.*;
 import java.util.Scanner;
-public class CNT_SourceDest{
 
-    INT_SourceDest ISD=new INT_SourceDest();
+public class CNT_SourceDest implements CNT_ISourceDest{
+
+    INT_SourceDest ISD;
     private String source;
     private String destination;
     private int source_index;
     private int dest_index;
-
 
     public void setSourceIndex(int s_index){
         source_index=s_index;
@@ -31,21 +29,17 @@ public class CNT_SourceDest{
     {
         int source_index = -1;
         int dest_index = -1;
-      //  System.out.println("Size of location : "+ imapObj.location.length);
-        for (int i=0; i<imapObj.location.length; i++)
-        {
-            if(imapObj.location[i].equals(source))
-            {
+
+        for (int i=0; i<imapObj.location.length; i++){
+            if(imapObj.location[i].equals(source)){
                 source_index = i;
                 setSourceIndex(source_index);
             }
 
-            if(imapObj.location[i].equals(destination) )
-            {
+            if(imapObj.location[i].equals(destination)){
                 dest_index = i;
                 setDestIndex(dest_index);
             }
-
         }
 
         if(source_index == dest_index){
@@ -54,8 +48,7 @@ public class CNT_SourceDest{
             return false;
         }
 
-        if(source_index!=-1 && dest_index!=-1)
-        {
+        if(source_index!=-1 && dest_index!=-1){
             System.out.println("Valid Input");
             return true;
         }
@@ -64,18 +57,13 @@ public class CNT_SourceDest{
         return false;
     }
 
-
-
     public void getSourceDest(ENT_Location imapObj){
-
-      source=ISD.getSource();
-      destination=ISD.getDest();
-       while(!validateLocation(imapObj,  source,  destination)){
-         source=ISD.getSource();
-         destination=ISD.getDest();
+        ISD = new INT_SourceDest();
+        source=ISD.getSource();
+        destination=ISD.getDest();
+        while(!validateLocation(imapObj,  source,  destination)){
+          source=ISD.getSource();
+          destination=ISD.getDest();
        }
     }
-
-
-
 }
